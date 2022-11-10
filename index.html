@@ -4,10 +4,46 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="styles/styles.css">
+    
     <title>Project 2 - Jakob and Andres</title>
 </head>
 <body>
+    <div class="wrapper">
+
+        <h1>trump or not</h1>
+
+        <div class="quoteContainer">
+
+            <img src="./img/trump1.jpeg" alt="Donald Trump on a podium with his right hand raised">
+            <div class="textContainer">
+                <p class="openingQuote quote">“</p>
+                <p id="quote">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente, autem? Laboriosam nulla et id delectus obcaecati commodi, minima sint culpa.</p>
+                <p class="closingQuote quote">”</p>
+            </div>
+            
+        </div>
+
+        <p class="cta">Use one of the buttons below to choose if the quote above is or isn't Trump</p>
+
+        <ul class="buttonContainer">
+            <li><button id="trumpButton" class="responseButton">Trump</button></li>
+            <li><button id="notButton" class="responseButton">Not</button></li>
+        </ul>
+
+        <div class="answerContainer">
+            <p class="answer">Result: You're right/wrong. XXXXX person said this on XXXX date</p>
+        </div>
+
+        <div class="buttonContainer"><button id="resetButton">Try again</button></div>
+
+    </div>
 
   <script src="js.js"></script>
 </body>
