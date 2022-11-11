@@ -4,10 +4,11 @@ fakeArray = ["That's what they say about people from Mexico, hard workers, but n
 
 const url = 'https://api.tronalddump.io/random/quote'
 
-
+// main starting point of the app, the randomizer will either pick 1 or 0 which we base everything else on.
 trumpApp.random = () => {
     const randomNum = Math.floor(Math.random() * 2);
     console.log(randomNum)
+    // if 1 is chosen, make a call to the api to return a random quote
     if (randomNum === 1) {
         async function getQuote(){
             const myObject = await fetch(url);
@@ -16,11 +17,21 @@ trumpApp.random = () => {
         }
         getQuote()
         .then((quoteData)=>{
-          console.log(quoteData.value)
+            // eventually gonna add the function that moves the data onto the page
+            // trumpApp.displayQuote(quoteData.value)
+            console.log(quoteData.value)
         })
-    };
+    // if the number is 0, 
+    } else {
+        getRandomFakeQuote();
+        // trumpApp.displayQuote(-fake quote goes here-)
+    }
 };
 
+trumpApp.getRandomFakeQuote = () => {
+    const arrayLength = Math.floor(Math.random() * fakeArray.length);
+    return fakeArray[arrayLength];
+}
 
 // trumpApp.displayQuote = (quote) => {
 //     console.log(quote)
