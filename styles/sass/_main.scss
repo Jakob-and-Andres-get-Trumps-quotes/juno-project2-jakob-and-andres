@@ -34,4 +34,7 @@
     background-color: rgba($color:variables.$secondaryColor, $alpha:0.4);
     border-color: variables.$secondaryColor;
   }
+  &.disappear{
+    display: none;
+  }
 }

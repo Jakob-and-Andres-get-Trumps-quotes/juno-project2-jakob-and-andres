@@ -1,6 +1,8 @@
 trumpApp = {};
 
-fakeArray = ["That's what they say about people from Mexico, hard workers, but not that smart. Not smart, like me.", "insert trump quote here", "insert trump quote here"]
+trumpApp.fakeArray = ["That's what they say about people from Mexico, hard workers, but not that smart. Not smart, like me.", "insert trump quote here1", "insert trump quote here2"]
+
+trumpApp.trumpOrNot = true
 
 const url = 'https://api.tronalddump.io/random/quote'
 
@@ -13,44 +15,65 @@ trumpApp.random = () => {
         async function getQuote(){
             const myObject = await fetch(url);
             const parsedObject = await myObject.json();
+            trumpApp.trumpOrNot = true
             return parsedObject;
         }
         getQuote()
         .then((quoteData)=>{
             // eventually gonna add the function that moves the data onto the page
-            // trumpApp.displayQuote(quoteData.value)
-            console.log(quoteData.value)
+            trumpApp.displayQuote(quoteData.value)
         })
-    // if the number is 0, 
+    // if the number is 0, get the fake quote
     } else {
-        getRandomFakeQuote();
-        // trumpApp.displayQuote(-fake quote goes here-)
-    }
+        trumpApp.trumpOrNot = false
+        trumpApp.displayQuote(trumpApp.getRandomFakeQuote());
+    };
 };
 
+// function that pulls a random fabricated quote from the array above
 trumpApp.getRandomFakeQuote = () => {
-    const arrayLength = Math.floor(Math.random() * fakeArray.length);
-    return fakeArray[arrayLength];
-}
+    const arrayLength = Math.floor(Math.random() * trumpApp.fakeArray.length);
+    return trumpApp.fakeArray[arrayLength];
+};
 
-// trumpApp.displayQuote = (quote) => {
-//     console.log(quote)
-// }
+// function that takes an argument and puts it on the page as html.
+trumpApp.displayQuote = (quote) => {
+    const quoteParagraph = document.querySelector('#theQuote')
+    quoteParagraph.textContent = quote
+};
 
+// query selectors for the three buttons
+trumpApp.trumpButton = document.querySelector('#trumpButton')
+trumpApp.notButton = document.querySelector('#notButton')
+trumpApp.tryAgainButton = document.querySelector('#resetButton')
 
+// 'trump' button event listener that checks the trumpOrNot variable
+trumpApp.trumpButton.addEventListener('click', function(){
+    if (trumpApp.trumpOrNot) {
+        // run you win function
+        console.log('you\'re right')
+    } else {
+        // run the you lose function
+        console.log('you\'re wrong')
+    };
+});
 
+// 'not' button event listener that checks the trumpOrNot variable
+trumpApp.notButton.addEventListener('click', function(){
 
+    if (trumpApp.trumpOrNot) {
+        // run you lose function
+        console.log('you\'re wrong')
+    } else {
+        // run you win function
+        console.log('you\'re right')
+    };
+});
 
-// this code will be pretty useful for our fakeArray 
-// const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-
-// function getRandomDay() {
-//   const randomDay = Math.floor(Math.random() * days.length);
-
-//   return days[randomDay];
-// }
-
-
+// soon to be added try again button that resets the process
+trumpApp.tryAgainButton.addEventListener('click', function(){
+    // try again stuff like clearing the code
+});
 
 
 
@@ -69,15 +92,4 @@ trumpApp.init = () => {
 
 trumpApp.init();
 
-
-
 ///////////////////////////////////////////////////////////////////////
-
-// fetch(url)
-//         .then((res) => {
-//             console.log(res.json())
-//             return res.json()
-//         .then( (data) => {
-//             trumpApp.displayQuote(data.value)
-//             })
-//         })
