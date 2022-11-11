@@ -1,4 +1,8 @@
-@use 'setup';
+@use './setup';
+@use './variables';
+@use './global';
+@use './typography';
+@use './main';
+@use './footer';
 
-$mainColor: #f08080;
-$secondaryColor: #F8F8F8;
+
