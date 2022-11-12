@@ -25,15 +25,9 @@ trumpApp.random = () => {
         })
     // if the number is 0, get the fake quote
     } else {
-<<<<<<< HEAD
-        trumpApp.getRandomFakeQuote();
-        // trumpApp.displayQuote(-fake quote goes here-)
-    }
-=======
         trumpApp.trumpOrNot = false
         trumpApp.displayQuote(trumpApp.getRandomFakeQuote());
     };
->>>>>>> 6a11a35e3b056695364566e6452a04e44eb24a66
 };
 
 // function that pulls a random fabricated quote from the array above
