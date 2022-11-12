@@ -260,7 +260,7 @@ img {
   margin: 0 auto;
 }
 
-.disapear {
+.disappear {
   display: none;
 }
 
@@ -330,8 +330,13 @@ h1 {
   background-color: rgba(0, 119, 187, 0.4);
   border-color: #0077BB;
 }
+<<<<<<< HEAD
 .buttonContainer #notButton:hover {
   background-color: rgba(0, 119, 187, 0.8);
+=======
+.buttonContainer.disappear {
+  display: none;
+>>>>>>> 6a11a35e3b056695364566e6452a04e44eb24a66
 }
 
 footer {
