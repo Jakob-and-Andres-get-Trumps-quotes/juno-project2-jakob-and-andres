@@ -270,7 +270,10 @@ button {
   width: 200px;
   height: 40px;
   text-transform: uppercase;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
 }
+
 body {
   font-size: 125%;
   color: #333;
@@ -320,9 +323,15 @@ h1 {
   background-color: rgba(255, 99, 71, 0.4);
   border-color: tomato;
 }
+.buttonContainer #trumpButton:hover {
+  background-color: rgba(255, 99, 71, 0.8);
+}
 .buttonContainer #notButton {
   background-color: rgba(0, 119, 187, 0.4);
   border-color: #0077BB;
+}
+.buttonContainer #notButton:hover {
+  background-color: rgba(0, 119, 187, 0.8);
 }
 
 footer {

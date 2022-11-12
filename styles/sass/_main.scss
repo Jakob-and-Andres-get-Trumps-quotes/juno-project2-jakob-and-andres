@@ -29,9 +29,15 @@
   #trumpButton{
     background-color: rgba($color:variables.$trumpRed, $alpha:0.4);
     border-color: variables.$trumpRed;
+    &:hover {
+      background-color: rgba($color:variables.$trumpRed, $alpha:0.8);
+    }
   }
   #notButton{
     background-color: rgba($color:variables.$secondaryColor, $alpha:0.4);
     border-color: variables.$secondaryColor;
+    &:hover {
+      background-color: rgba($color:variables.$secondaryColor, $alpha:0.8);
+    }
   }
 }
