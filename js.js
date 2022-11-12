@@ -1,36 +1,39 @@
 trumpApp = {};
 
-trumpApp.fakeArray = ["That's what they say about people from Mexico, hard workers, but not that smart. Not smart, like me.", "insert trump quote here1", "insert trump quote here2"]
+// this is where we keep our fake quotes
+trumpApp.fakeArray = ["That's what they say about people from Mexico, hard workers, but not that smart. Not smart, like me.", " kung flue insert trump quote here1", "insert trump quote here2"];
 
-trumpApp.trumpOrNot = true
+// hidden variable that tracks whether the randomizer picked a fake or real quote
+trumpApp.trumpOrNot = true;
 
-const url = 'https://api.tronalddump.io/random/quote'
+// API URL which returns a random string
+const url = 'https://api.tronalddump.io/random/quote';
 
 // main starting point of the app, the randomizer will either pick 1 or 0 which we base everything else on.
 trumpApp.random = () => {
     const randomNum = Math.floor(Math.random() * 2);
-    console.log(randomNum)
+    console.log(randomNum);
     // if 1 is chosen, make a call to the api to return a random quote
     if (randomNum === 1) {
         async function getQuote(){
             const myObject = await fetch(url);
             const parsedObject = await myObject.json();
-            trumpApp.trumpOrNot = true
+            trumpApp.trumpOrNot = true;
             return parsedObject;
         }
         getQuote()
         .then((quoteData)=>{
-            // eventually gonna add the function that moves the data onto the page
+            // then we take the raw string from the API and display with our function
             trumpApp.displayQuote(quoteData.value)
-        })
+        });
     // if the number is 0, get the fake quote
     } else {
-        trumpApp.trumpOrNot = false
+        trumpApp.trumpOrNot = false;
         trumpApp.displayQuote(trumpApp.getRandomFakeQuote());
     };
 };
 
-// function that pulls a random fabricated quote from the array above
+// function that pulls a random fabricated quote from the array at the top
 trumpApp.getRandomFakeQuote = () => {
     const arrayLength = Math.floor(Math.random() * trumpApp.fakeArray.length);
     return trumpApp.fakeArray[arrayLength];
@@ -42,7 +45,7 @@ trumpApp.displayQuote = (quote) => {
     quoteParagraph.textContent = quote
 };
 
-// query selectors for the three buttons
+// query selectors for the buttons
 trumpApp.trumpButton = document.querySelector('#trumpButton')
 trumpApp.notButton = document.querySelector('#notButton')
 trumpApp.tryAgainButton = document.querySelector('#resetButton')
@@ -60,7 +63,6 @@ trumpApp.trumpButton.addEventListener('click', function(){
 
 // 'not' button event listener that checks the trumpOrNot variable
 trumpApp.notButton.addEventListener('click', function(){
-
     if (trumpApp.trumpOrNot) {
         // run you lose function
         console.log('you\'re wrong')
@@ -74,6 +76,8 @@ trumpApp.notButton.addEventListener('click', function(){
 trumpApp.tryAgainButton.addEventListener('click', function(){
     // try again stuff like clearing the code
 });
+
+// trumpApp.winFunc
 
 
 
