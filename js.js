@@ -23,7 +23,7 @@ trumpApp.random = () => {
         })
     // if the number is 0, 
     } else {
-        getRandomFakeQuote();
+        trumpApp.getRandomFakeQuote();
         // trumpApp.displayQuote(-fake quote goes here-)
     }
 };
