@@ -47,8 +47,9 @@ img {
 
 button {
   border: 1px solid variables.$gray;
-  border-radius: 3px;
-  width: 200px;
-  height: 40px;
+  border-radius: 5px;
+  width: 250px;
+  height: 60px;
   text-transform: uppercase;
+  transition: all 0.2s;
 }
