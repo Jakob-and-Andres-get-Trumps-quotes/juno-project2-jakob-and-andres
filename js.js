@@ -73,6 +73,7 @@ trumpApp.notButton.addEventListener('click', function(){
 // soon to be added try again button that resets the process
 trumpApp.tryAgainButton.addEventListener('click', function(){
     // try again stuff like clearing the code
+    trumpApp.random()
 });
 
 
