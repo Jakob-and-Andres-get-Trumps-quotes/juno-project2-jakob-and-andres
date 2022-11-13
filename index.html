@@ -23,7 +23,6 @@
         <div class="wrapper">
             <div class="quoteContainer">
                 
-                <!-- <img src="./img/trump1.jpeg" alt="Donald Trump on a podium with his right hand raised"> -->
                 <div class="textContainer">
                     <p class="quote">“<span id="theQuote"></span>”</p>
                 </div>
@@ -37,17 +36,28 @@
                 <li><button id="notButton" class="responseButton">Not</button></li>
             </ul>
             
-            <div class="answerContainer">
-                <p class="answer">Result: You're right/wrong. XXXXX person said this on XXXX date</p>
+            <!-- popup that appears once the user has clicked on a possible anwer -->
+            <div class="answerPopup disappear">
+                <div class="resultContainer wrapper wrongImage">
+                    <div class="textContainer">
+                        <!-- this below will show the text for an incorrect answer -->
+                        <p id="wrongAnswer" class="answer"><span>Ya fired!</span><br/> You guessed wrong!</p>
+                        <!-- this below will show the text for a correct answer -->
+                        <p id="rightAnswer" class="answer disappear"><span>Iuge</span><br/>Good guess!</p>
+                    </div>
+                </div>
+                <div class="buttonContainer"><button id="resetButton">Try again</button></div>
             </div>
+            <!-- popup ends -->
             
-            <div class="buttonContainer"><button id="resetButton">Try again</button></div>
             
         </div>
     </main>
 
     <footer>
-        <a href="https://junocollege.com/">Created at Juno College</a>
+        <div class="wrapper">
+            <a href="https://junocollege.com/" target="_blank">Created at Juno College</a>
+        </div>
     </footer>
 
   <script src="js.js"></script>
