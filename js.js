@@ -3,8 +3,10 @@ trumpApp = {};
 // this is where we keep our fake quotes
 trumpApp.fakeArray = ["That's what they say about people from Mexico, hard workers, but not that smart. Not smart, like me.", " kung flue insert trump quote here1", "insert trump quote here2"];
 
+// hidden variables that track 1) what the randomizer chose 2) whether the user chose the correct answer 3) the users number of correct guesses
 trumpApp.trumpOrNot = true;
 trumpApp.answer = true;
+trumpApp.score = 0;
 
 // API URL which returns a random string
 const url = 'https://api.tronalddump.io/random/quote';
@@ -24,11 +26,12 @@ trumpApp.random = () => {
         getQuote()
         .then((quoteData)=>{
             // then we take the raw string from the API and display with our function
-            trumpApp.displayQuote(quoteData.value)
+            trumpApp.displayQuote(quoteData.value);
         });
     // if the number is 0, get the fake quote
     } else {
         trumpApp.trumpOrNot = false;
+        // callback function! displays the random quote
         trumpApp.displayQuote(trumpApp.getRandomFakeQuote());
     };
 };
@@ -41,80 +44,80 @@ trumpApp.getRandomFakeQuote = () => {
 
 // function that takes an argument and puts it on the page as html.
 trumpApp.displayQuote = (quote) => {
-    const quoteParagraph = document.querySelector('#theQuote')
-    quoteParagraph.textContent = quote
+    const quoteParagraph = document.querySelector('#theQuote');
+    quoteParagraph.textContent = quote;
 };
 
 // query selectors for the buttons
-trumpApp.trumpButton = document.querySelector('#trumpButton')
-trumpApp.notButton = document.querySelector('#notButton')
-trumpApp.tryAgainButton = document.querySelector('#resetButton')
-
-// query selector for popup
-trumpApp.popup = document.querySelector('.answerPopup')
-
-// query selector for popup image
-trumpApp.popupImg = document.querySelector('.resultContainer')
-
-// query selector for popup text
-trumpApp.popupTxtWrong = document.querySelector('#wrongAnswer')
-trumpApp.popupTxtRight = document.querySelector('#rightAnswer')
+trumpApp.trumpButton = document.querySelector('#trumpButton');
+trumpApp.notButton = document.querySelector('#notButton');
+trumpApp.tryAgainButton = document.querySelector('#resetButton');
+// query selector for the pop up page
+trumpApp.popup = document.querySelector('.answerPopup');
+// query selector for the pop up image
+trumpApp.popupImg = document.querySelector('.resultContainer');
+// query selector for the pop up text
+trumpApp.popupTxtWrong = document.querySelector('#wrongAnswer');
+trumpApp.popupTxtRight = document.querySelector('#rightAnswer');
 
 
-// 'trump' button event listener that checks the trumpOrNot variable
+// 'trump' button event listener that then checks the trumpOrNot variable to proceed to the correct pop up
 trumpApp.trumpButton.addEventListener('click', function(){
     if (trumpApp.trumpOrNot) {
-        // run you win function
+        // if you got it right, the "is user correct" variable gets updated, and the score increases
         trumpApp.answer = true;
-        trumpApp.poppupBuilder(trumpApp.answer)
+        trumpApp.score = trumpApp.score + 1;
+        // then we run the variable through the pop up function which will chose the "trunmp" or "not" pop up
+        trumpApp.poppupBuilder(trumpApp.answer);
     } else {
-        // run the you lose function
+        // this pattern is repeated here and for the not button below 
         trumpApp.answer = false;
-        trumpApp.poppupBuilder(trumpApp.answer)
+        trumpApp.poppupBuilder(trumpApp.answer);
     };
 });
 
 // 'not' button event listener that checks the trumpOrNot variable
 trumpApp.notButton.addEventListener('click', function(){
-    // 
     if (trumpApp.trumpOrNot) {
-        // run you lose function
         trumpApp.answer = false;
-        trumpApp.poppupBuilder(trumpApp.answer)
+        trumpApp.poppupBuilder(trumpApp.answer);
     } else {
-        // run you win function
         trumpApp.answer = true;
-        trumpApp.poppupBuilder(trumpApp.answer)
+        trumpApp.score = trumpApp.score + 1;
+        trumpApp.poppupBuilder(trumpApp.answer);
     };
 });
 
-// soon to be added try again button that resets the process
+// 'try again' button listener that restarts the whole app
 trumpApp.tryAgainButton.addEventListener('click', function(){
-    // try again stuff like clearing the code
-    trumpApp.random()
-    //make popup disappear
+    // the main functino is run again, giving us a new quote
+    trumpApp.random();
+    // make the popup disappear
     trumpApp.popup.classList.add("disappear");
+
+    //
+    console.log(trumpApp.score) // remove once the score tracker is shown on the screen //
 });
 
+// function that takes the hidden variable that tracks whether the user is correct, and picks which pop up to display based off that. this is done by manipulating the classes of elements in our html.
 trumpApp.poppupBuilder = (answer) => {
     //check if answer is true or false
     if (answer) {
-        // build the poppup as correct
+        // build the pop up for the correct guess 
+        // class manipulations to chose the right image while also chosing the right text to display. this is repeated below
         trumpApp.popupImg.classList.remove("wrongImage");
         trumpApp.popupImg.classList.add("correctImage");
-
         trumpApp.popupTxtRight.classList.remove("disappear");
         trumpApp.popupTxtWrong.classList.add("disappear");
         
     } else {
-        //build wrong poppup
+        //build the pop up for the incorrect guess
         trumpApp.popupImg.classList.remove("correctImage");
         trumpApp.popupImg.classList.add("wrongImage");
-
         trumpApp.popupTxtWrong.classList.remove("disappear");
         trumpApp.popupTxtRight.classList.add("disappear");
     }
-    // make popup pop
+    // finally makes the pop up visible
     trumpApp.popup.classList.remove("disappear");
 };
 
@@ -128,7 +131,7 @@ trumpApp.poppupBuilder = (answer) => {
 
 trumpApp.init = () => {
     // add all functions here that will be run on startup
-    trumpApp.random()
+    trumpApp.random();
 };
 
 trumpApp.init();
