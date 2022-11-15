@@ -4,6 +4,14 @@
 header {
   .wrapper {
     border-bottom: 1px solid variables.$white;
+    h1 {
+      margin: 15px 0 0;
+    }
+    .scoreLine {
+      margin: 0 0 15px;
+      color: variables.$white;
+      font-weight: 800;      
+    }
   }
 }
 
@@ -12,7 +20,7 @@ header {
   // background-color: variables.$lightGray;
   width: 100%;
   height: 1px;
-  min-height: 550px;
+  min-height: 450px;
 
   .textContainer {
     font-family: 'Playfair Display', serif; 
@@ -69,8 +77,8 @@ header {
 }
 
 .answerPopup {
-  background-color: rgba( $color:variables.$trumpRed, $alpha:0.8 );
-  position: absolute;
+  background-color: rgba( $color:variables.$trumpeOther, $alpha:0.8 );
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
