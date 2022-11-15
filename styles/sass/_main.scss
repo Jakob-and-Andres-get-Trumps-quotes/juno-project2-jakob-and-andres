@@ -1,0 +1,114 @@
+@use './variables';
+@use './typography';
+
+header {
+  .wrapper {
+    border-bottom: 1px solid variables.$white;
+  }
+}
+
+.quoteContainer {
+  padding: 20px;
+  // background-color: variables.$lightGray;
+  width: 100%;
+  height: 1px;
+  min-height: 550px;
+
+  .textContainer {
+    font-family: 'Playfair Display', serif; 
+    font-size: 3.35rem;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    
+    p {
+      margin: 0;
+      color: variables.$white;
+    }
+  }
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  #trumpButton{
+    background-color: rgba($color:variables.$trumpRed, $alpha:1);
+    border: 2px solid variables.$white;
+    &:hover {
+      background-color: rgba($color:variables.$lightGray, $alpha:0.6);
+      border: 3px solid variables.$white;
+      color: variables.$black;
+    }
+  }
+  #notButton{
+    background-color: rgba($color:variables.$secondaryColor, $alpha:1);
+    border: 2px solid variables.$white;
+    &:hover {
+      background-color: rgba($color:variables.$lightGray, $alpha:0.6);
+      border: 3px solid variables.$white;
+      color: variables.$black;
+    }
+  }
+  &.disappear{
+    display: none;
+  }
+  li {
+    margin: 0 15px;
+    button {
+      color: variables.$white;
+    }
+  }
+}
+
+.cta {
+  font-weight: 600;
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+.answerPopup {
+  background-color: rgba( $color:variables.$trumpRed, $alpha:0.8 );
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  .resultContainer {
+    position: relative;
+    margin-top: 60px;
+    padding: 10px 30px 0;
+    min-height: 600px;
+    background-position: right;
+    background-size: cover;
+    &.correctImage {
+      background-image: url('../img/right.jpg');
+    }
+    &.wrongImage {
+      background-image: url('../img/wrong.jpg');
+    }
+    
+    .textContainer {
+      font-size: 60px;
+      font-weight: 800;
+      max-width: 300px;
+      color: variables.$white;
+      -webkit-text-stroke: 2px variables.$black;
+      text-transform: uppercase;
+
+      span {
+        font-size: 100px;
+      }
+    }
+  }
+
+  .buttonContainer {
+    margin-top: 30px;
+
+    button {
+      width: 40%;
+    }
+  }
+}

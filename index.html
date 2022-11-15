@@ -4,10 +4,63 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;800&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="styles/styles.css">
+    
     <title>Project 2 - Jakob and Andres</title>
 </head>
 <body>
+    <header>
+        <div class="wrapper">
+            <h1>trump or not</h1>
+        </div>        
+    </header>
+    <main>
+        
+        <div class="wrapper">
+            <div class="quoteContainer">
+                
+                <div class="textContainer">
+                    <p class="quote">“<span id="theQuote"></span>”</p>
+                </div>
+                
+            </div>
+                        
+            <ul class="buttonContainer">
+                <li><button id="trumpButton" class="responseButton">Trump</button></li>
+                <li><button id="notButton" class="responseButton">Not</button></li>
+            </ul>
+            
+            <p class="cta">Use one of the buttons above to choose if the quote above is or isn't Trump</p>
+            
+            <!-- popup that appears once the user has clicked on a possible anwer -->
+            <div class="answerPopup disappear">
+                <div class="resultContainer wrapper wrongImage">
+                    <div class="textContainer">
+                        <!-- this below will show the text for an incorrect answer -->
+                        <p id="wrongAnswer" class="answer"><span>Ya fired!</span><br/> You guessed wrong!</p>
+                        <!-- this below will show the text for a correct answer -->
+                        <p id="rightAnswer" class="answer disappear"><span>Yuge</span><br/>Good guess!</p>
+                    </div>
+                </div>
+                <div class="buttonContainer"><button id="resetButton">Try again</button></div>
+            </div>
+            <!-- popup ends -->
+            
+            
+        </div>
+    </main>
+
+    <footer>
+        <div class="wrapper">
+            <a href="https://junocollege.com/" target="_blank">Created at Juno College</a>
+        </div>
+    </footer>
 
   <script src="js.js"></script>
 </body>

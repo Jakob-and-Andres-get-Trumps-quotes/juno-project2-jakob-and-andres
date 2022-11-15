@@ -1,0 +1,63 @@
+@use './variables';
+
+//skip Link
+.skip-link {
+  position: absolute;
+  left: -1000px;
+  top: 5px;
+  z-index: 999;
+  background: white;
+  color: black;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+body {
+  // used https://superdesigner.co/tools/css-backgrounds
+  background: radial-gradient(transparent 79%, #cc3d3d 80%);
+        background-size: 1em 1em;
+        background-color: #e34040;
+        opacity: 1
+}
+
+
+ul { 
+  list-style: none;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+input {
+  min-width: 200px;
+  white-space: normal;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.disappear {
+  display: none;
+}
+
+button {
+  border: 1px solid variables.$black;
+  border-radius: 5px;
+  width: 250px;
+  height: 60px;
+  text-transform: uppercase;
+  transition: all 0.2s;
+}
