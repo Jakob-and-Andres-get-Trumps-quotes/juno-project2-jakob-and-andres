@@ -16,7 +16,9 @@
 </head>
 <body>
     <header>
-        <h1>trump or not</h1>        
+        <div class="wrapper">
+            <h1>trump or not</h1>
+        </div>        
     </header>
     <main>
         
@@ -28,13 +30,13 @@
                 </div>
                 
             </div>
-            
-            <p class="cta">Use one of the buttons below to choose if the quote above is or isn't Trump</p>
-            
+                        
             <ul class="buttonContainer">
                 <li><button id="trumpButton" class="responseButton">Trump</button></li>
                 <li><button id="notButton" class="responseButton">Not</button></li>
             </ul>
+            
+            <p class="cta">Use one of the buttons above to choose if the quote above is or isn't Trump</p>
             
             <!-- popup that appears once the user has clicked on a possible anwer -->
             <div class="answerPopup disappear">
@@ -43,7 +45,7 @@
                         <!-- this below will show the text for an incorrect answer -->
                         <p id="wrongAnswer" class="answer"><span>Ya fired!</span><br/> You guessed wrong!</p>
                         <!-- this below will show the text for a correct answer -->
-                        <p id="rightAnswer" class="answer disappear"><span>Iuge</span><br/>Good guess!</p>
+                        <p id="rightAnswer" class="answer disappear"><span>Yuge</span><br/>Good guess!</p>
                     </div>
                 </div>
                 <div class="buttonContainer"><button id="resetButton">Try again</button></div>

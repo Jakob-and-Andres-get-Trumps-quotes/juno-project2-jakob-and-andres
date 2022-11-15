@@ -234,6 +234,13 @@ template {
   left: 0;
 }
 
+body {
+  background: radial-gradient(transparent 79%, #cc3d3d 80%);
+  background-size: 1em 1em;
+  background-color: #e34040;
+  opacity: 1;
+}
+
 ul {
   list-style: none;
   padding: 0;
@@ -265,7 +272,7 @@ img {
 }
 
 button {
-  border: 1px solid #8b949e;
+  border: 1px solid #333;
   border-radius: 5px;
   width: 250px;
   height: 60px;
@@ -283,15 +290,19 @@ body {
 
 h1 {
   text-transform: uppercase;
-  font-size: 2.35rem;
+  font-size: 3.35rem;
+  color: #333;
+}
+
+header .wrapper {
+  border-bottom: 1px solid #F0F0F0;
 }
 
 .quoteContainer {
   padding: 20px;
-  background-color: #d3d9e0;
   width: 100%;
   height: 1px;
-  min-height: 600px;
+  min-height: 550px;
 }
 .quoteContainer .textContainer {
   font-family: "Playfair Display", serif;
@@ -310,35 +321,53 @@ h1 {
 }
 .quoteContainer .textContainer p {
   margin: 0;
+  color: #F0F0F0;
 }
 
 .buttonContainer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 .buttonContainer #trumpButton {
-  background-color: rgba(255, 99, 71, 0.4);
-  border-color: tomato;
+  background-color: #e34040;
+  border: 2px solid #F0F0F0;
 }
 .buttonContainer #trumpButton:hover {
-  background-color: rgba(255, 99, 71, 0.8);
+  background-color: rgba(211, 217, 224, 0.6);
+  border: 3px solid #F0F0F0;
+  color: #333;
 }
 .buttonContainer #notButton {
-  background-color: rgba(0, 119, 187, 0.4);
-  border-color: #0077BB;
+  background-color: #0077bb;
+  border: 2px solid #F0F0F0;
 }
 .buttonContainer #notButton:hover {
-  background-color: rgba(0, 119, 187, 0.8);
+  background-color: rgba(211, 217, 224, 0.6);
+  border: 3px solid #F0F0F0;
+  color: #333;
 }
 .buttonContainer.disappear {
   display: none;
 }
+.buttonContainer li {
+  margin: 0 15px;
+}
+.buttonContainer li button {
+  color: #F0F0F0;
+}
+
+.cta {
+  font-weight: 600;
+  max-width: 450px;
+  margin: 0 auto;
+}
 
 .answerPopup {
-  background-color: rgba(139, 148, 158, 0.8);
+  background-color: rgba(227, 64, 64, 0.8);
   position: absolute;
   top: 0;
   left: 0;
@@ -379,7 +408,8 @@ h1 {
 
 footer {
   margin-top: 30px;
-  color: #8b949e;
+  color: #F0F0F0;
+  padding: 0 0 30px;
 }
 footer .wrapper {
   border-top: 1px solid #d3d9e0;
