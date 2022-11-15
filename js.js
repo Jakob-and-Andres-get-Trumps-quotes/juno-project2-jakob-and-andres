@@ -26,7 +26,7 @@ trumpApp.random = () => {
         getQuote()
         .then((quoteData)=>{
             // then we take the raw string from the API and display with our function
-            trumpApp.displayQuote(quoteData.value);
+            trumpApp.displayQuote(quoteData.value.replace(/(?:https?|ftp):\/\/[\n\S]+/g, ''));
         });
     // if the number is 0, get the fake quote
     } else {
