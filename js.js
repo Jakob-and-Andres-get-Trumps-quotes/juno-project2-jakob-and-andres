@@ -3,10 +3,11 @@ trumpApp = {};
 // this is where we keep our fake quotes
 trumpApp.fakeArray = ["That's what they say about people from Mexico, hard workers, but not that smart. Not smart, like me.", "China China China. If you're not paying attention you're part of the problem", "Where are all the vaccines against the kung flu virus?", "If you work hard like me you can be as handsome and orange as I am","I have never done drugs","Why has Miami become the new Mexico","Congress has become a swamp", "NAFTA is the reason the Mexicans and Canada munch from us","Let's #MAGA all over the world", "Ignorance is bliss in a world of fake news"];
 
-// hidden variables that track 1) what the randomizer chose 2) whether the user chose the correct answer 3) the users number of correct guesses
+// hidden variables that track 1) what the randomizer chose 2) whether the user chose the correct answer 3) the users number of correct guesses 4) total number of user attempts
 trumpApp.trumpOrNot = true;
 trumpApp.answer = true;
 trumpApp.score = 0;
+trumpApp.attempts = 0;
 
 // API URL which returns a random string
 const url = 'https://api.tronalddump.io/random/quote';
@@ -59,7 +60,10 @@ trumpApp.popupImg = document.querySelector('.resultContainer');
 // query selector for the pop up text
 trumpApp.popupTxtWrong = document.querySelector('#wrongAnswer');
 trumpApp.popupTxtRight = document.querySelector('#rightAnswer');
-
+// query selevtor for the score display
+trumpApp.scoreDisplay = document.querySelector('#rightAnswers');
+// query selevtor for the total attempts display
+trumpApp.attemptsDisplay = document.querySelector('#totalAttempts');
 
 // 'trump' button event listener that then checks the trumpOrNot variable to proceed to the correct pop up
 trumpApp.trumpButton.addEventListener('click', function(){
@@ -67,6 +71,8 @@ trumpApp.trumpButton.addEventListener('click', function(){
         // if you got it right, the "is user correct" variable gets updated, and the score increases
         trumpApp.answer = true;
         trumpApp.score = trumpApp.score + 1;
+        // updates the score display
+        trumpApp.scoreDisplay.innerHTML = trumpApp.score
         // then we run the variable through the pop up function which will chose the "trunmp" or "not" pop up
         trumpApp.poppupBuilder(trumpApp.answer);
     } else {
@@ -84,6 +90,7 @@ trumpApp.notButton.addEventListener('click', function(){
     } else {
         trumpApp.answer = true;
         trumpApp.score = trumpApp.score + 1;
+        trumpApp.scoreDisplay.innerHTML = trumpApp.score
         trumpApp.poppupBuilder(trumpApp.answer);
     };
 });
@@ -92,11 +99,11 @@ trumpApp.notButton.addEventListener('click', function(){
 trumpApp.tryAgainButton.addEventListener('click', function(){
     // the main functino is run again, giving us a new quote
     trumpApp.random();
+    // update the total attempts and displays
+    trumpApp.attempts = trumpApp.attempts + 1;
+    trumpApp.attemptsDisplay.innerHTML = trumpApp.attempts
     // make the popup disappear
     trumpApp.popup.classList.add("disappear");
-
-    //
-    console.log(trumpApp.score) // remove once the score tracker is shown on the screen //
 });
 
 // function that takes the hidden variable that tracks whether the user is correct, and picks which pop up to display based off that. this is done by manipulating the classes of elements in our html.
