@@ -235,10 +235,8 @@ template {
 }
 
 body {
-  background: radial-gradient(transparent 79%, #cc3d3d 80%);
-  background-size: 1em 1em;
-  background-color: #e34040;
-  opacity: 1;
+  background-image: url("../img/trumpbg.png");
+  background-size: 25px;
 }
 
 ul {
@@ -297,12 +295,20 @@ h1 {
 header .wrapper {
   border-bottom: 1px solid #F0F0F0;
 }
+header .wrapper h1 {
+  margin: 15px 0 0;
+}
+header .wrapper .scoreLine {
+  margin: 0 0 15px;
+  color: #F0F0F0;
+  font-weight: 800;
+}
 
 .quoteContainer {
   padding: 20px;
   width: 100%;
   height: 1px;
-  min-height: 550px;
+  min-height: 450px;
 }
 .quoteContainer .textContainer {
   font-family: "Playfair Display", serif;
@@ -333,7 +339,7 @@ header .wrapper {
           justify-content: center;
 }
 .buttonContainer #trumpButton {
-  background-color: #e34040;
+  background-color: #e17f00;
   border: 2px solid #F0F0F0;
 }
 .buttonContainer #trumpButton:hover {
@@ -367,8 +373,8 @@ header .wrapper {
 }
 
 .answerPopup {
-  background-color: rgba(227, 64, 64, 0.8);
-  position: absolute;
+  background-color: rgba(227, 63, 64, 0.8);
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -414,4 +420,56 @@ footer {
 footer .wrapper {
   border-top: 1px solid #d3d9e0;
   padding-top: 30px;
+}
+
+@media (max-width: 750px) {
+  h1 {
+    font-size: 2.35rem;
+    margin: 15px 0;
+  }
+  .quoteContainer {
+    min-height: 400px;
+  }
+  .quoteContainer .textContainer {
+    font-size: 3rem;
+  }
+  .answerPopup .resultContainer {
+    min-height: 400px;
+  }
+  .answerPopup .resultContainer .textContainer {
+    font-size: 36px;
+  }
+  .answerPopup .resultContainer .textContainer span {
+    line-height: 88px;
+  }
+}
+@media (max-width: 570px) {
+  .quoteContainer {
+    min-height: auto;
+    height: 100%;
+  }
+  .quoteContainer .textContainer {
+    font-size: 2.5rem;
+  }
+  .buttonContainer li {
+    width: 100%;
+  }
+  .buttonContainer li button {
+    width: 100%;
+  }
+  .answerPopup .buttonContainer button {
+    width: 80%;
+  }
+}
+@media (max-width: 400px) {
+  .buttonContainer li {
+    margin: 0;
+  }
+  .answerPopup .resultContainer .textContainer {
+    margin-top: 150px;
+  }
+  .answerPopup .resultContainer .textContainer span {
+    font-size: 50px;
+    line-height: 48px;
+  }
 }

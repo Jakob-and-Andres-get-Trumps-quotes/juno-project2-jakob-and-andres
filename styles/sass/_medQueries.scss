@@ -1,0 +1,67 @@
+@media (max-width: 750px) {
+  h1 {
+    font-size: 2.35rem;
+    margin: 15px 0;
+  }
+  .quoteContainer {
+    min-height: 400px;
+    .textContainer {
+      font-size: 3rem;
+    }
+  }
+  .answerPopup {
+    .resultContainer {
+      min-height: 400px;
+      .textContainer {
+        font-size: 36px;
+        span {
+          line-height: 88px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 570px) {
+  .quoteContainer {
+    min-height: auto;
+    height: 100%;
+    .textContainer {
+      font-size: 2.5rem;
+    }
+  }
+  .buttonContainer {
+    li {
+      width: 100%;
+      button {
+        width: 100%;
+      }
+    }
+  }
+  .answerPopup {
+    .buttonContainer {
+      button {
+        width: 80%;
+      }
+    }
+  }
+}
+
+@media (max-width: 400px) { 
+  .buttonContainer {
+    li {
+      margin: 0;
+    }
+  }
+  .answerPopup {
+    .resultContainer {
+      .textContainer {
+        margin-top: 150px;
+        span {
+          font-size: 50px;
+          line-height: 48px;
+        }
+      }
+    }
+  }
+}
