@@ -1,7 +1,7 @@
 trumpApp = {};
 
 // this is where we keep our fake quotes
-trumpApp.fakeArray = ["That's what they say about people from Mexico, hard workers, but not that smart. Not smart, like me.", "China China China. If you're not paying attention you're part of the problem", "Where are all the vaccines against the kung flu virus?", "If you work hard like me you can be as handsome and orange as I am","I have never done drugs","Why has Miami become the new Mexico","Congress has become a swamp", "NAFTA is the reason the Mexicans and Canada munch from us","Let's #MAGA all over the world", "Ignorance is bliss in a world of fake news"];
+trumpApp.fakeArray = ["That's what they say about people from Mexico, hard workers, but not that smart. Not smart, like me.", "China China China. If you're not paying attention you're part of the problem.", "Where are all the vaccines against the kung flu virus?", "If you work hard like me you can be as handsome and orange as I am.","I have never done drugs.","Why has Miami become the new Mexico?","Congress has become a swamp.", "NAFTA is the reason the Mexicans and Canada munch from us.","Let's #MAGA all over the world.", "Ignorance is bliss in a world of fake news.", "I will always tell the truth and do what I said I would do.", "The American free market system is the greatest engine for prosperity and opportunity that the world has ever seen. Freedom works."];
 
 // hidden variables that track 1) what the randomizer chose 2) whether the user chose the correct answer 3) the users number of correct guesses 4) total number of user attempts
 trumpApp.trumpOrNot = true;
