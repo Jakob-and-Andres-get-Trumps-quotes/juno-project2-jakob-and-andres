@@ -104,9 +104,6 @@ trumpApp.tryAgainButton.addEventListener('click', function(){
     trumpApp.attemptsDisplay.innerHTML = trumpApp.attempts
     // make the popup disappear
     trumpApp.popup.classList.add("disappear");
-
-    //
-    console.log(trumpApp.score) // remove once the score tracker is shown on the screen //
 });
 
 // function that takes the hidden variable that tracks whether the user is correct, and picks which pop up to display based off that. this is done by manipulating the classes of elements in our html.
