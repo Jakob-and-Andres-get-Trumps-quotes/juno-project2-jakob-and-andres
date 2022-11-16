@@ -15,7 +15,6 @@ const url = 'https://api.tronalddump.io/random/quote';
 // main starting point of the app, the randomizer will either pick 1 or 0 which we base everything else on.
 trumpApp.random = () => {
     const randomNum = Math.floor(Math.random() * 2);
-    // console.log(randomNum)
     // if 1 is chosen, make a call to the api to return a random quote
     if (randomNum === 1) {
         async function getQuote(){
@@ -26,7 +25,7 @@ trumpApp.random = () => {
         }
         getQuote()
         .then((quoteData)=>{
-            // then we take the raw string from the API and display with our function
+            // then we take the raw string from the API and display with our function, while removing any embedded links
             trumpApp.displayQuote(quoteData.value.replace(/(?:https?|ftp):\/\/[\n\S]+/g, ''));
         });
     // if the number is 0, get the fake quote
@@ -72,17 +71,17 @@ trumpApp.trumpButton.addEventListener('click', function(){
         trumpApp.answer = true;
         trumpApp.score = trumpApp.score + 1;
         // updates the score display
-        trumpApp.scoreDisplay.innerHTML = trumpApp.score
-        // then we run the variable through the pop up function which will chose the "trunmp" or "not" pop up
+        trumpApp.scoreDisplay.innerHTML = trumpApp.score;
+        // then we run the variable through the pop up function which will chose the "trump" or "not" pop up
         trumpApp.poppupBuilder(trumpApp.answer);
     } else {
-        // this pattern is repeated here and for the not button below 
+        // this pattern is repeated here, and for the not button below 
         trumpApp.answer = false;
         trumpApp.poppupBuilder(trumpApp.answer);
     };
 });
 
-// 'not' button event listener that checks the trumpOrNot variable
+// 'not' button event listener that checks the trumpOrNot variable, comments are same as above
 trumpApp.notButton.addEventListener('click', function(){
     if (trumpApp.trumpOrNot) {
         trumpApp.answer = false;
@@ -90,7 +89,7 @@ trumpApp.notButton.addEventListener('click', function(){
     } else {
         trumpApp.answer = true;
         trumpApp.score = trumpApp.score + 1;
-        trumpApp.scoreDisplay.innerHTML = trumpApp.score
+        trumpApp.scoreDisplay.innerHTML = trumpApp.score;
         trumpApp.poppupBuilder(trumpApp.answer);
     };
 });
@@ -101,7 +100,7 @@ trumpApp.tryAgainButton.addEventListener('click', function(){
     trumpApp.random();
     // update the total attempts and displays
     trumpApp.attempts = trumpApp.attempts + 1;
-    trumpApp.attemptsDisplay.innerHTML = trumpApp.attempts
+    trumpApp.attemptsDisplay.innerHTML = trumpApp.attempts;
     // make the popup disappear
     trumpApp.popup.classList.add("disappear");
 });
@@ -128,19 +127,13 @@ trumpApp.poppupBuilder = (answer) => {
     trumpApp.popup.classList.remove("disappear");
 };
 
-
-
-
-
-
-
-
+////////////////////////////////////////////////////////////////////////
 
 trumpApp.init = () => {
-    // add all functions here that will be run on startup
+    // these functions will be run on startup
     trumpApp.random();
 };
 
 trumpApp.init();
 
-///////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
