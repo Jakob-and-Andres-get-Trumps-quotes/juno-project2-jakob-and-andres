@@ -83,6 +83,7 @@ header {
   left: 0;
   width: 100%;
   height: 100%;
+  transition: all 0.1s;
 
   .resultContainer {
     position: relative;
@@ -105,6 +106,9 @@ header {
       color: variables.$white;
       -webkit-text-stroke: 2px variables.$black;
       text-transform: uppercase;
+      .answer.disappear {
+        display: none;
+      }
 
       span {
         font-size: 100px;
