@@ -47,7 +47,8 @@ img {
 }
 
 .disappear {
-  display: none;
+  // display: none;
+  transform: scale(0);
 }
 
 button {
